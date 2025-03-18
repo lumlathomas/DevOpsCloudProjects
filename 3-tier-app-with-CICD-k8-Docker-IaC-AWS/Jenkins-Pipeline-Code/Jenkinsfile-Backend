@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Sonarqube Analysis') {
             steps {
-                dir('backend') {
+                dir('3-tier-app-with-CICD-k8-Docker-IaC-AWS/backend') {
                     withSonarQubeEnv('sonar-server') {
                         sh ''' $SCANNER_HOME/bin/sonar-scanner \
                         -Dsonar.projectName=three-tier-backend \
@@ -42,7 +42,7 @@ pipeline {
         }
         stage('Trivy File Scan') {
             steps {
-                dir('backend') {
+                dir('3-tier-app-with-CICD-k8-Docker-IaC-AWS/backend') {
                     sh 'trivy fs . > trivyfs.txt'
                 }
             }
@@ -50,7 +50,7 @@ pipeline {
         stage("Docker Image Build") {
             steps {
                 script {
-                    dir('backend') {
+                    dir('3-tier-app-with-CICD-k8-Docker-IaC-AWS/backend') {
                             sh 'docker system prune -f'
                             sh 'docker container prune -f'
                             sh 'docker build -t ${AWS_ECR_REPO_NAME} .'
@@ -83,7 +83,7 @@ pipeline {
                 GIT_USER_NAME = "lumlathomas"
             }
             steps {
-                dir('kubernetes-files') {
+                dir('3-tier-app-with-CICD-k8-Docker-IaC-AWS/kubernetes-files') {
                     withCredentials([string(credentialsId: 'my-git-pattoken', variable: 'git_token')]) {
                         sh '''
                             git config user.email "lumlarose@@gmail.com"
