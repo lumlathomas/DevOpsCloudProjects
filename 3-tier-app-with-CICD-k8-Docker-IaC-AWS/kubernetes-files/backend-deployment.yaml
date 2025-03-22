@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: 871677391987.dkr.ecr.eu-west-2.amazonaws.com/backend:2
+        image: 871677391987.dkr.ecr.eu-west-2.amazonaws.com/backend:2 #give your ecr backend link
         ports:
         - containerPort: 80
         env:
