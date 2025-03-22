@@ -4,7 +4,7 @@ provider "aws" {
 
  #Creating IAM role for EKS
   resource "aws_iam_role" "master" {
-    name = "lumla-eks-master1"
+    name = "lumla-eks-master1" #change it to your desired name
 
     assume_role_policy = jsonencode({
       "Version": "2012-10-17",
@@ -36,7 +36,7 @@ provider "aws" {
   }
 
   resource "aws_iam_role" "worker" {
-    name = "lumla-eks-worker1"
+    name = "lumla-eks-worker1" # change it to your desired name
 
     assume_role_policy = jsonencode({
       "Version": "2012-10-17",
@@ -53,7 +53,7 @@ provider "aws" {
   }
 
   resource "aws_iam_policy" "autoscaler" {
-    name = "lumla-eks-autoscaler-policy1"
+    name = "lumla-eks-autoscaler-policy1" # change it to your desired name to create one for you
     policy = jsonencode({
       "Version": "2012-10-17",
       "Statement": [
@@ -106,7 +106,7 @@ provider "aws" {
 
   resource "aws_iam_instance_profile" "worker" {
     depends_on = [aws_iam_role.worker]
-    name       = "lumla-eks-worker-new-profile1"
+    name       = "lumla-eks-worker-new-profile1" # change it to your desired name
     role       = aws_iam_role.worker.name
   }
  
@@ -169,7 +169,7 @@ data "aws_security_group" "selected" {
     instance_types  = ["t2.small"]
 
     remote_access {
-      ec2_ssh_key               = "LondonKP"
+      ec2_ssh_key               = "LondonKP" # give your region keypair here
       source_security_group_ids = [data.aws_security_group.selected.id]
     }
 
