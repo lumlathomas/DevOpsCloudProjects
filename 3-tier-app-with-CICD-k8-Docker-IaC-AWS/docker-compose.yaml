@@ -20,9 +20,9 @@ services:
     ports:
       - "86:80"
     environment:
-      - DB_HOST=book-rds.c1u4kewc6r37.ap-south-1.rds.amazonaws.com
+      - DB_HOST=book-rds.c1u4kewc6r37.eu-west-2.rds.amazonaws.com # your region rds endpoint
       - DB_USERNAME=admin
-      - DB_PASSWORD=veeranarni
+      - DB_PASSWORD=lumlathomas
       - PORT=3306
     networks:
       - appnet
