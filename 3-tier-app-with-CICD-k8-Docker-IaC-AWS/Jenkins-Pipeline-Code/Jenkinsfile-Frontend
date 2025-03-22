@@ -102,3 +102,4 @@ pipeline {
         }
     }
 }
+#change this file accordinly to your own repo and configuration for frontend
