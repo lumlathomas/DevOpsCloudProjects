@@ -7,13 +7,13 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "lumlabucketfor3tier"
+    bucket = "lumlabucketfor3tier" # create new bucket in s3
     key    = "ec2/terraform.tfstate"
-    region = "eu-west-2"
+    region = "eu-west-2" # s3 region where you have created
   }
 
   required_version = ">= 1.6.3"
 }
 provider "aws" {
-  region = "eu-west-2"
+  region = "eu-west-2" # change it to your preferred region
 }
