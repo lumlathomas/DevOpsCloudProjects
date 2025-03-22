@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: 871677391987.dkr.ecr.eu-west-2.amazonaws.com/frontend:3
+        image: 871677391987.dkr.ecr.eu-west-2.amazonaws.com/frontend:3 #give your ecr image frontend
         ports:
         - containerPort: 80
         env:   # <-- Fixed indentation
